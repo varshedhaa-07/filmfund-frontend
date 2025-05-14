@@ -10,7 +10,7 @@ function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("https://filmfund.onrender.com/api/films"); // ✅ Backend call
+        const res = await axios.get("https://filmfund-adminbackend.onrender.com/api/admin/films"); // ✅ Backend call
         setProjects(res.data); // Save fetched projects
       } catch (error) {
         console.error("Error fetching projects:", error.message);

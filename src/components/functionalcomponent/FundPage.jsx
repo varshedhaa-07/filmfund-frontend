@@ -14,7 +14,7 @@ function FundPage() {
   useEffect(() => {
     const fetchFilm = async () => {
       try {
-        const res = await axios.get(`https://filmfund.onrender.com/api/films/${id}`);
+        const res = await axios.get(`https://filmfund-adminbackend.onrender.com/api/admin/films/${id}`);
         setFilm(res.data);
       } catch (error) {
         console.error("Error fetching film:", error.message);
@@ -32,8 +32,8 @@ function FundPage() {
 
     try {
       await axios.post(
-        `https://filmfund.onrender.com/api/films/${id}/contribute`,
-        { amount },
+        `https://filmfund-adminbackend.onrender.com/api/admin/films/${id}/contribute`,
+        { amount: Number(amount) },
         {
           headers: {
             Authorization: `Bearer ${user?.token}`, // Send token for protected route
@@ -68,10 +68,10 @@ function FundPage() {
           <label>Select Your Contribution Amount:</label>
           <select value={amount} onChange={(e) => setAmount(e.target.value)}>
             <option value="">-- Select Amount --</option>
-            <option value="10">$10 - Supporter</option>
-            <option value="25">$25 - Special Thanks</option>
-            <option value="50">$50 - Early Access</option>
-            <option value="100">$100 - Executive Producer Credit</option>
+            <option value="5000">Rs.5000 - Supporter</option>
+            <option value="25000">Rs.25000 - Special Thanks</option>
+            <option value="50000">Rs.50000 - Early Access</option>
+            <option value="100000">Rs.100000 - Executive Producer Credit</option>
           </select>
         </div>
 
